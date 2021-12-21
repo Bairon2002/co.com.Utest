@@ -17,21 +17,23 @@ public class UtestStepDefinitions<course> {
     private String course;
 
     @Before
-    public void setStage () {OnStage.setTheStage(new OnlineCast()); }
+    public void setStage () {
+        OnStage.setTheStage(new OnlineCast());
+    }
 
-    @Given("^Bairon Alfonso wants to make an automation in the Utest$")
-    public void bairon_Alfonso_wants_to_make_an_automation_in_the_Utest() {
+    @Given("^Bairon Alfonso wants to make an automation on the Utest page for a person registration \\.\\.\\.$")
+    public void bairon_Alfonso_wants_to_make_an_automation_on_the_Utest_page_for_a_person_registration() {
         OnStage.theActorCalled("Bairon").wasAbleTo(OpenUp.thePage(), (Login.onThePage()));
     }
 
 
-    @When("^looking for the (.*) option on the Utest platform$")
-    public void looking_for_the_community_page_option_on_the_Utest_platform() {
+    @When("^looking for the Join Today option to be able to register the person \\.\\.\\.$")
+    public void looking_for_the_Join_Today_option_to_be_able_to_register_the_person() {
         OnStage.theActorInTheSpotlight().attemptsTo(Search.the(course));
     }
 
-    @Then("^find the option for (.*)$")
-    public void find_the_option_for_community_page(String question) {
+    @Then("^Join Today look for all the fields and fill out the (.*) forms to be able to Log in$")
+    public void join_Today_look_for_all_the_fields_and_fill_out_the_forms_to_be_able_to_Log_in(String question) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(Answer.toThe(question)));
     }
 }
